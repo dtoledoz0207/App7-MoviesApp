@@ -22,12 +22,23 @@ export class PeliculasService {
     let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.http.jsonp(url, '').pipe( map(res => {
-      return res;
+      
+      
+      return res['results'];
     }));
   }
 
   getPopulares(){
     let url = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
+
+    return this.http.jsonp(url, '').pipe( map(res => {
+      return res;
+    }));
+  }
+
+
+  getPopularesNinos(){
+    let url = `${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.http.jsonp(url, '').pipe( map(res => {
       return res;

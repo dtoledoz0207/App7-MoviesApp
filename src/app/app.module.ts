@@ -11,6 +11,9 @@ import {PeliculasService} from './services/peliculas.service';
 // Rutas
 import {AppRoutingModule} from './app.routes';
 
+// Pipes
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
+
 // Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +26,8 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     NavbarComponent,
     HomeComponent,
     PeliculaComponent,
-    BuscarComponent
+    BuscarComponent,
+    PeliculaImagenPipe
   ],
   imports: [
     BrowserModule,
