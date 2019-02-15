@@ -10,11 +10,11 @@ export class AppComponent {
   title = 'moviesapp';
 
   constructor(public _ps:PeliculasService){
-    this._ps.getPopulares().subscribe(data => {
+   /* this._ps.getPopulares().subscribe(data => {
       let datos:any = data;
       console.log(datos);
 
-    });
+    });*/
   }
 
 }
