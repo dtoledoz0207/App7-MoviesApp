@@ -8,6 +8,8 @@ export class PeliculasService {
   private apikey:string = "3f8ace2c02ff13704411f19cbfc2187d";
   private urlMoviedb:string = "https://api.themoviedb.org/3";
 
+  peliculas:any[] = [];
+
   constructor(private http:HttpClient, jsonp:JsonpClientBackend) { }
 
 
@@ -41,6 +43,16 @@ export class PeliculasService {
     let url = `${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
 
     return this.http.jsonp(url, '').pipe( map(res => {
+      return res['results'];
+    }));
+  }
+
+  buscarPelicula(texto:string){
+    let url = `${ this.urlMoviedb }/search/movie?query=${ texto }&sort_by=popularity.desc&api_key=${ this.apikey }&language=es&callback=JSONP_CALLBACK`;
+
+    return this.http.jsonp(url, '').pipe(map (res => {
+      this.peliculas = res['results'];
+      console.log(this.peliculas);
       return res['results'];
     }));
   }

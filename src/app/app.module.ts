@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
@@ -35,7 +36,8 @@ import { GaleriaComponent } from './components/home/galeria.component';
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     PeliculasService
