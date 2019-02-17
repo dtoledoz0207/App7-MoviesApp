@@ -3,13 +3,13 @@
     <div class="col-md-12">
       <div class="form-group">
         <label>Buscar:</label>
-        <input [(ngModel)]="buscar" name="buscar" (keyup.enter)="buscarPelicula()" type="text" class="form-control" placeholder="Buscar pelicula">
+        <input [(ngModel)]="termino" name="termino" (keyup.enter)="buscarPelicula()" type="text" class="form-control" placeholder="Buscar pelicula">
       </div>
     </div>
   </div>
 
 
-  <div class="row">
+  <div class="row animated fadeIn fast">
     <div class="card-columns">
 
       <div class="card" *ngFor="let pelicula of _ps.peliculas">
@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title">{{pelicula.original_title}}</h5>
           <p class="card-text text-justify">{{pelicula.overview | slice:0:250}}...</p>
-          <button type="button" class="btn btn-outline-info btn-block">Ver más</button>
+          <button type="button" class="btn btn-outline-info btn-block" [routerLink]="['/pelicula', pelicula.id, 'buscar', termino]">Ver más</button>
         </div>
       </div>
 

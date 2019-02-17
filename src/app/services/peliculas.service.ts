@@ -52,7 +52,7 @@ export class PeliculasService {
 
     return this.http.jsonp(url, '').pipe(map (res => {
       this.peliculas = res['results'];
-      console.log(this.peliculas);
+      //console.log(this.peliculas);
       return res['results'];
     }));
   }

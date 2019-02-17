@@ -9,14 +9,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class BuscarComponent implements OnInit {
 
-  buscar:string = "";
+  termino:string = "";
 
   constructor(public _ps:PeliculasService, private activatedRoute:ActivatedRoute) { 
 
     this.activatedRoute.params.subscribe(parametros => {
       //console.log(parametros['texto']);
       if(parametros['texto']){
-        this.buscar = parametros['texto'];
+        this.termino = parametros['texto'];
         this.buscarPelicula();
       }
     });
@@ -28,11 +28,11 @@ export class BuscarComponent implements OnInit {
 
   buscarPelicula(){
 
-    if(this.buscar.length == 0){
+    if(this.termino.length == 0){
       return;
     }else{
 
-      this._ps.buscarPelicula(this.buscar).subscribe(data => {
+      this._ps.buscarPelicula(this.termino).subscribe(data => {
 
       });
 

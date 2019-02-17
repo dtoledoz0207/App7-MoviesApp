@@ -10,6 +10,7 @@
     </div>
     <div class="col-md-7">
       <h3>Sinopsis</h3>
+      <p>{{pelicula.release_date | date: 'mediumDate'}}</p>
       <hr>
       <p class="text.justify">{{pelicula.overview}}</p>
 
@@ -18,6 +19,8 @@
       <p><strong>Popularidad: </strong><span class="badge badge-info">{{pelicula.popularity}}</span></p>
       <p><strong>Promedio de votos: </strong><span class="badge badge-primary">{{pelicula.vote_average}}</span></p>
       <p><strong>Cantidad de votos: </strong><span class="badge badge-secondary">{{pelicula.vote_count}}</span></p>
+
+      <button type="button" class="btn btn-outline-danger" [routerLink]="['/'+regresarA, busqueda]">Regresar</button>
     </div>
 
   </div>
